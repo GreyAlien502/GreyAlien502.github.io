@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+    <HEAD>
+        <TITLE>Rand-o-chat 3000</TITLE>
+    </HEAD>
+    <BODY>
+        <div id="output"></div>
+        <script>
+function foo(data)
+{
+document.getElementById('output').innerHTML = data.contents;
+}
+
+var script = document.createElement('script');
+script.src = 'http://www.whateverorigin.org/get?url=http%3A%2F%2Fwww.google.com&callback=foo';
+
+document.getElementsByTagName('head')[0].appendChild(script);
+// or document.head.appendChild(script) in modern browsers        
+    </script>
+    </BODY>
+</html>

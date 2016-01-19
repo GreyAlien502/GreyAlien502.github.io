@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Transliterater</title>
+    <link href="blaq babushka.jpeg" rel="icon" type="image/x-icon">
+    <link href="primary.css" rel="stylesheet" type="css/text">
+    <style>
+        textarea {font-family: "Times New Roman", "Liberation Serif", Times, Serif;}
+    </style>
+</head>
+<body>
+	<script>
+function transliterate() {
+
+ 	var input = document.getElementById("input").value;
+ 	var keys = document.getElementById("keys").value;
+ 	var vals = document.getElementById("vals").value;
+
+
+
+	var keylecian = keys.split('\n');
+	var valecian = vals.split('\n');
+
+    	document.getElementById('output').innerHTML = valecian[0];
+
+	var nuvostring = '';
+
+
+	for (var i=0; i<input.length; i++) {
+		for (j in keylecian) {
+			for (var k=0; k<keylecian[j].length; k++) {
+				var match = 1;
+				if (keylecian[j].charAt(k) != input.charAt(k+i)) {
+					k = 10000;
+					match = 0;
+				}
+			}
+			if (match == 1) {
+				nuvostring = nuvostring + valecian[j];
+				i+= keylecian[j].length - 1;
+				break;
+			}
+        	}
+		if (match == 0) {
+			nuvostring = nuvostring + input.charAt(i);
+		}
+    	}
+    	document.getElementById('output').innerHTML = nuvostring;
+
+}
+function save() {
+    if(typeof(Storage) !== "undefined") {
+        var keys = document.getElementById("keys").value;
+ 	    var vals = document.getElementById("vals").value;
+        localStorage.setItem("keys", keys);
+        localStorage.setItem("vals", vals);
+    } else {
+    alert ("Sorry, starage is not supported in your browser. Upgrade to a better browser to use this feature.");
+    }
+}
+function load() {
+    if(typeof(Storage) !== "undefined") {
+        var keys = localStorage.getItem("keys");
+ 	    var vals = localStorage.getItem("vals");
+        document.getElementById("keys").value = keys;
+        document.getElementById("vals").value = vals;
+    } else {
+    alert ("Sorry, starage is not supported in your browser. Upgrade to a better browser to use this feature.");
+    }
+}
+function swap() {
+    var keys = document.getElementById("keys").value;
+    var vals = document.getElementById("vals").value;
+
+    document.getElementById("keys").value = vals;
+    document.getElementById("vals").value = keys;
+}
+load();
+	</script>
+    
+    <p>
+        <a href="index.html">Home</a> | <a href="tools-index.html">Tools</a>
+    </p>
+
+    <header>
+        <h1>Transliterater</h1>
+    </header>
+
+    <p>Enter the input and then the output. You can use digraphs, etc. on either side. The first match will be used.</p>
+	<textarea rows=70 columns=1 style="width: 20px; height: 500px; float: left;" id="keys"></textarea>
+	<textarea rows=70 columns=1 style="width: 20px; height: 500px; float: left;" id="vals"></textarea>
+	<textarea rows=70 columns=20 style="width: 500px; height: 500px; float: left;" 1 id="input"></textarea>
+    <button style="width: 50px; height: 50px; background-color: green; float: left;" onclick="transliterate()">GO</button>
+    <button style="width: 50px; height: 50px; background-color: red; float: left;" onclick="save()">SAVE</button>
+    <button style="width: 50px; height: 50px; background-color: orange; float: left;" onclick="load()">LOAD</button>
+    <button style="width: 50px; height: 50px; background-color: magenta; float: left;" onclick="swap()">SWAP</button><br>
+	<p style="margin-top:75px;" id="output">Output will appear here.</p>
+	<br>
+</body>
+</html>

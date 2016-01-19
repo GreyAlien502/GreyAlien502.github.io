@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<HEAD>
+    <TITLE>Pastureland</TITLE>
+    <LINK REL="STYLESHEET" type="text/css" href="../../sty.css">
+    <LINK REL="STYLESHEET" type="text/css" href="pastureland.css">
+    <SCRIPT src="pastureland.js"></SCRIPT>
+</HEAD>
+<body onload="setup();">
+    <a href="../../index.html">Home</a>|<a href="../games.html">Games</a>
+    <h1>Pastureland</h1>
+    <div id="endDiv">
+        <img src="cow-grave.gif" id="endScreen">
+    </div>
+    <div id="game">
+    </div>
+    <div id="controls">
+        <div id="volumeDiv" class="control_half">
+            <div id="volume_box">
+                <div id="volume_title">Volume</div>
+                <input type="range" onchange="setVolume();" id="volumeSlider" value=0>
+            </div>
+        </div>
+        <div id="restartDiv" class="control_half">
+            <button onclick="restart();" id="restart">Restart</button>
+        </div>
+    </div>
+    <audio src="cow.mp3" id="cows"></audio>
+    <audio src="error.mp3" id="errors"></audio>
+</body>

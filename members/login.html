@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<HEAD>
+    <TITLE>Login</TITLE>
+    <LINK REL="STYLESHEET" type="text/css" href="../sty.css">
+    <link rel="shortcut icon" href="../images/favicon.ico" type="x-icon">
+    <link rel="icon" href="../images/favicon.ico" type="x-icon">
+    <SCRIPT src="../geturl.js"></SCRIPT>
+    <SCRIPT src="login.js"></SCRIPT>
+ </HEAD>
+<BODY>
+    <a href="../index.html">Home</a>
+    <H1>Login to your account</H1>
+    Username: <input id="username"><br>
+    Password: <input id="password" onKeyPress="maybeLogin(key);"><br>
+    <button onclick="login()" >Login</button>
+    <div id="content"></div>
+</BODY>

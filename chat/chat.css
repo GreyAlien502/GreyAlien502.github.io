@@ -1,0 +1,23 @@
+#chatbox    {width:400px; overflow:auto; background:#000000; border:5px #FFFF00; border-style:double double none none; border-top-right-radius:20px;}
+#infobox    {padding:10px; width:50%; display:table-cell;}
+#input      {width:100%; max-width:100%;}
+#wrapper    {width:100%;display:table;}
+#chatside   {display:table-cell;}
+messagedivs   {margin-top:3px; margin-bottom:3px;}
+.user_container {text-align:left;}
+.system_container{text-align:center;}
+.bud_container {text-align:right;}
+
+
+.message {padding-right:3px; padding-left:3px; display:inline-block; border-radius:10px; max-width:300px;border-width:2px; border-style:outset}
+.user     {background-color:#000000; color:#FF00FF; border-color:#FF00FF;}
+.system   {background-color:#000000; color:#00FF00; border-color:#00FF00;}
+.bud      {background-color:#000000; color:#00FFFF; border-color:#00FFFF;}
+
+img {max-width:300px;}
+
+button  {background-color:#0000FF; color:#FFFF00; border:3px double #000000;}
+.active    {background-color:#FF0000; color:#000000; border:3px double #000000;}
+.inaaeuaeuctive, .acaeuaeutive           {border-radius:9;}
+
+p {text-indent:56px;}
