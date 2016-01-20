@@ -6,3 +6,5 @@ a:hover     {color:yellow; font-weight:bold;}
 a:active    {color:yellow;}
 h1          {font-size:64px;}
 pre         {font-size:14px;}
+table,th,td {border:1px double;}
+p           {text-indent:56px;}
