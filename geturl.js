@@ -2,7 +2,9 @@ function rfc3986EncodeURIComponent (str) {
     return encodeURIComponent(str).replace(/[!'()*]/g, escape);  
 }
 function getURL(url,callback){
-eval(function(p,a,c,k,e,d){e=function(c){return c.toString(36)};if(!''.replace(/^/,String)){while(c--){d[c.toString(a)]=k[c]||c.toString(a)}k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1};while(c--){if(k[c]){p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c])}}return p}('a 0=2.9(\'0\');0.b="c://8.e.7/3/4/5?q=6%d*%o%f%n%p%r\'"+m+"\'&l=h&g=i&1="+1;2.j.k(0);',28,28,'script|callback|document|v1|public|yql|select|com|query|createElement|var|src|https|20|yahooapis|20json|diagnostics|json|true|body|appendChild|format|url|20where|20from|20url||3D'.split('|'),0,{}));
+    var script = document.createElement('script');
+    script.src = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20json%20where%20url%3D'"+url+"'&format=json&diagnostics=true&callback="+callback;
+    document.body.appendChild(script);
 }
 
 function idontcare(aboutthis){}
@@ -38,7 +40,7 @@ function sendRequest(sendback,command,data){
 function getReply(sendback,callback){
     requestData[sendback].callback = callback;
     getURL('http%3A%2F%2Fec.androiddown.com%2Fchat%2Fapp.php%3Fcmd%3Dkeep%26id%3D'+sendback,'finishgetReply');
-    }function finishgetReply(response){json = response.query.results.json;
+    }function finishgetReply(response){console.log(response);json = response.query.results.json;
         var url = response.query.diagnostics.url.content;
         var sendback = url.substring(url.lastIndexOf('=') + 1);
         var callback = requestData[sendback].callback;
