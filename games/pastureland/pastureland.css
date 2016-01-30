@@ -1,65 +1,65 @@
 .row {
-    padding:0;
-    margin:0;
-    height:118px;
-    max-height:118px;
+	padding:0;
+	margin:0;
+	height:118px;
+	max-height:118px;
 }
 .field {
-    width:130px;
-    height:118px;
-    padding:0;
-    margin:0;
-    position:relative;
-    top:0;
+	width:130px;
+	height:118px;
+	padding:0;
+	margin:0;
+	position:relative;
+	top:0;
 }
 .fieldi{
-    max-width:130px;
-    max-height:118px;
-    padding:0;
-    top:0;
-    right:0;
-    vertical-align: middle;
+	max-width:130px;
+	max-height:118px;
+	padding:0;
+	top:0;
+	right:0;
+	vertical-align: middle;
 }
 #endScreen {
-    margin-right:auto;
-    margin-left:auto;
-    height:472px;
-    max-width:520px;
+	margin-right:auto;
+	margin-left:auto;
+	height:472px;
+	max-width:520px;
 }
 
 #endDiv {
-    position:absolute;
-    height:472px;
-    z-index:100;
-    width:520px;
-    text-align:center;
+	position:absolute;
+	height:472px;
+	z-index:100;
+	width:520px;
+	text-align:center;
 }
-    
+	
 #controls {
-    height:74px;
-    width:520px;
-    padding:0;
-    margin:0;
-    position:relative;
-    top:0;
-    color:#ffffff;
-    background-color:#0000ff;
-    display:table;
+	height:74px;
+	width:520px;
+	padding:0;
+	margin:0;
+	position:relative;
+	top:0;
+	color:#ffffff;
+	background-color:#0000ff;
+	display:table;
 }
 
 .control_half {
-    height:74px;
-    width:260px;
-    padding:0;
-    display:table-cell;
-    text-align:center;
+	height:74px;
+	width:260px;
+	padding:0;
+	display:table-cell;
+	text-align:center;
 }
 #volume_box, #restart  {
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
 }
 
 #volume_title, #volumeSlider {
-    margin:0 auto;
+	margin:0 auto;
 }

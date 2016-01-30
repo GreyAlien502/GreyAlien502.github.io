@@ -1,85 +1,85 @@
 function rfc3986EncodeURIComponent (str) {  
-    return encodeURIComponent(str).replace(/[!'()*]/g, escape);  
+	return encodeURIComponent(str).replace(/[!'()*]/g, escape);  
 }
 function getURL(url,callback){
-    var script = document.createElement('script');
-    script.src = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20json%20where%20url%3D'"+url+"'&format=json&diagnostics=true&callback="+callback;
-    document.body.appendChild(script);
+	var script = document.createElement('script');
+	script.src = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20json%20where%20url%3D'"+url+"'&format=json&diagnostics=true&callback="+callback;
+	document.body.appendChild(script);
 }
 
 function idontcare(aboutthis){}
 
 function getSendback(){
-    if (localStorage.getItem("sendback") === null) {
-        var width = window.screen.availWidth;
-        var height = window.screen.availHeight;
-        return ''+width+'x'+height+Math.random();
-    }
-    return localStorage.getItem('sendback')+Math.random()+'';
+	if (localStorage.getItem("sendback") === null) {
+		var width = window.screen.availWidth;
+		var height = window.screen.availHeight;
+		return ''+width+'x'+height+Math.random();
+	}
+	return localStorage.getItem('sendback')+Math.random()+'';
 }
 
 var requestData = {};//callback, response, tries
 
 function setCreds(username,password){
-    localStorage.setItem("username", username);
-    localStorage.setItem("password",password);
+	localStorage.setItem("username", username);
+	localStorage.setItem("password",password);
 }
 
 function sendRequest(sendback,command,data){
-    var username = localStorage.getItem("username");
-    var password = localStorage.getItem("password");
-    var message = {"sendback":sendback,"username":username,"password":password,"command":command,"data":data};
-    
-    message = JSON.stringify(message);
-    var encoded_message = rfc3986EncodeURIComponent(rfc3986EncodeURIComponent(message));
-    getURL('http%3A%2F%2Fec.androiddown.com%2Fchat%2Fapp.php%3Fcmd%3Dkeep%26id%3D'+sendback,'idontcare');
-    getURL('http%3A%2F%2Fec.androiddown.com%2Fchat%2Fapp.php%3Fcmd%3Dchat%26id%3Dzerving_hat%26to%3D'+encoded_message,'idontcare');
-    requestData[sendback]={"callback":null,"response":'',"tries":0};
+	var username = localStorage.getItem("username");
+	var password = localStorage.getItem("password");
+	var message = {"sendback":sendback,"username":username,"password":password,"command":command,"data":data};
+	
+	message = JSON.stringify(message);
+	var encoded_message = rfc3986EncodeURIComponent(rfc3986EncodeURIComponent(message));
+	getURL('http%3A%2F%2Fec.androiddown.com%2Fchat%2Fapp.php%3Fcmd%3Dkeep%26id%3D'+sendback,'idontcare');
+	getURL('http%3A%2F%2Fec.androiddown.com%2Fchat%2Fapp.php%3Fcmd%3Dchat%26id%3Dzerving_hat%26to%3D'+encoded_message,'idontcare');
+	requestData[sendback]={"callback":null,"response":'',"tries":0};
 }
 
 function getReply(sendback,callback){
-    requestData[sendback].callback = callback;
-    getURL('http%3A%2F%2Fec.androiddown.com%2Fchat%2Fapp.php%3Fcmd%3Dkeep%26id%3D'+sendback,'finishgetReply');
-    }function finishgetReply(response){console.log(response);json = response.query.results.json;
-        var url = response.query.diagnostics.url.content;
-        var sendback = url.substring(url.lastIndexOf('=') + 1);
-        var callback = requestData[sendback].callback;
-        console.log(requestData[sendback]);
-        
-        function processEvent(event,sendback){
-            console.log(event);
-            if( event.type == 'disconnect'){//0:done; 1:in process;
-                requestData[sendback].response = requestData[sendback].response + event.from.substring(1);
-                if (event.from.charAt(0) == '0'){
-                    requestData[sendback].tries = 999999999;
-                }else if(event.from.charAt(0)== '1'){
-                    requestData[sendback].tries = 0;
-                }else{
-                    window.alert(event.from);
-                }
-            }
-        }
-        requestData[sendback].tries = requestData[sendback].tries+1;
-        if (json.hasOwnProperty('events')) {
-            if (json.events.hasOwnProperty('type')){
-                processEvent(json.events,sendback);
-            }else{
-                for (eventnum = 0; eventnum < json.events.length; eventnum++) {
-                        processEvent(json.events[eventnum],sendback);
-                }
-            }
-        }
-        console.log(requestData[sendback].response);
-        if (requestData[sendback].tries < 100){
-            setTimeout(function(){getReply(sendback,callback);},0);
-        }else{
-            requestData[sendback].callback='null';
-            callback(JSON.parse(requestData[sendback].response));
-        }
+	requestData[sendback].callback = callback;
+	getURL('http%3A%2F%2Fec.androiddown.com%2Fchat%2Fapp.php%3Fcmd%3Dkeep%26id%3D'+sendback,'finishgetReply');
+	}function finishgetReply(response){console.log(response);json = response.query.results.json;
+		var url = response.query.diagnostics.url.content;
+		var sendback = url.substring(url.lastIndexOf('=') + 1);
+		var callback = requestData[sendback].callback;
+		console.log(requestData[sendback]);
+		
+		function processEvent(event,sendback){
+			console.log(event);
+			if( event.type == 'disconnect'){//0:done; 1:in process;
+				requestData[sendback].response = requestData[sendback].response + event.from.substring(1);
+				if (event.from.charAt(0) == '0'){
+					requestData[sendback].tries = 999999999;
+				}else if(event.from.charAt(0)== '1'){
+					requestData[sendback].tries = 0;
+				}else{
+					window.alert(event.from);
+				}
+			}
+		}
+		requestData[sendback].tries = requestData[sendback].tries+1;
+		if (json.hasOwnProperty('events')) {
+			if (json.events.hasOwnProperty('type')){
+				processEvent(json.events,sendback);
+			}else{
+				for (eventnum = 0; eventnum < json.events.length; eventnum++) {
+						processEvent(json.events[eventnum],sendback);
+				}
+			}
+		}
+		console.log(requestData[sendback].response);
+		if (requestData[sendback].tries < 100){
+			setTimeout(function(){getReply(sendback,callback);},0);
+		}else{
+			requestData[sendback].callback='null';
+			callback(JSON.parse(requestData[sendback].response));
+		}
 }
 
 function sendAndGet(command,data,callback){
-    var sendback = getSendback();
-    sendRequest(sendback,command,data);
-    getReply(sendback,callback);
+	var sendback = getSendback();
+	sendRequest(sendback,command,data);
+	getReply(sendback,callback);
 }

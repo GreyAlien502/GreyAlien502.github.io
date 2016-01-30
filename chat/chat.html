@@ -1,34 +1,34 @@
 <HEAD>
-    <TITLE>Rand-o-chat 3000</TITLE>
-    <LINK REL="STYLESHEET" type="text/css" href="../sty.css">
-    <LINK REL="STYLESHEET" type="text/css" href="chat.css">
-    <SCRIPT src="../geturl.js"></SCRIPT>
-    <SCRIPT src="chat.js"></SCRIPT>
+	<TITLE>Rand-o-chat 3000</TITLE>
+	<LINK REL="STYLESHEET" type="text/css" href="../sty.css">
+	<LINK REL="STYLESHEET" type="text/css" href="chat.css">
+	<SCRIPT src="../geturl.js"></SCRIPT>
+	<SCRIPT src="chat.js"></SCRIPT>
 </HEAD>
 
 <BODY onload="setup();">
-     <a href="../index.html">Home</a>
-     <H1>Now, chat.</H1>
-    <div id='chatside'>
-        <div id='chatbox'>
-            <div>
-                <button id='login' onclick="login();">Login</button>
-                <button id='chat' onclick="chat();" onKeyPress="maybeSend(key);">Chat</button>
-                <button id='keep' onclick="keep();">Keep</button>
-                <button id='picture' onclick="sendPic();">Picture</button>
-                <button id='clear' onclick="clearChat();">Clear</button>
-                <button id='disconnect' onclick="disconnect();">Disconnect</button>
-            </div>
-            <input id="input">
-            <p hidden id='hide-in-the-box'></p>
-            <div id="chattext"></div>
-        </div>
-        <div id='infobox'>
-             <h2>About</h2>
-            <p>This chat connects you anonymously with someone somewhere in the world. Use the "Keep" button to refresh incoming messages. To send a picture, put the url of the picture in the chat box and click the "Picture" button. Although you can see
-                an rough guess of where the other person is, they cannot see the same information about you, or if they see any location information it will be associated with another server, not you personally.</p>
-             <h2>Disclaimer</h2>
-            <p>I am not responsible for anything that you hear in a chat or the low quality of this chat. Don't give away your information unless you are willing to risk everything.</p>
-        </div>
-    </div>
+	 <a href="../index.html">Home</a>
+	 <H1>Now, chat.</H1>
+	<div id='chatside'>
+		<div id='chatbox'>
+			<div>
+				<button id='login' onclick="login();">Login</button>
+				<button id='chat' onclick="chat();" onKeyPress="maybeSend(key);">Chat</button>
+				<button id='keep' onclick="keep();">Keep</button>
+				<button id='picture' onclick="sendPic();">Picture</button>
+				<button id='clear' onclick="clearChat();">Clear</button>
+				<button id='disconnect' onclick="disconnect();">Disconnect</button>
+			</div>
+			<input id="input">
+			<p hidden id='hide-in-the-box'></p>
+			<div id="chattext"></div>
+		</div>
+		<div id='infobox'>
+			 <h2>About</h2>
+			<p>This chat connects you anonymously with someone somewhere in the world. Use the "Keep" button to refresh incoming messages. To send a picture, put the url of the picture in the chat box and click the "Picture" button. Although you can see
+				an rough guess of where the other person is, they cannot see the same information about you, or if they see any location information it will be associated with another server, not you personally.</p>
+			 <h2>Disclaimer</h2>
+			<p>I am not responsible for anything that you hear in a chat or the low quality of this chat. Don't give away your information unless you are willing to risk everything.</p>
+		</div>
+	</div>
 </BODY>
