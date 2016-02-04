@@ -9,7 +9,6 @@ function formatWords(wordlecian){
 			if (english.notes.length !=0) translation +=' ('+english.notes.join(', ')+')';
 			translations.push(translation);
 		}
-		console.log(word);
 		output +=(word.original +"&#9;["+word.partOfSpeech+"]&#9;"+translations.join(", ")+'<br>');
 	}
 	return output
