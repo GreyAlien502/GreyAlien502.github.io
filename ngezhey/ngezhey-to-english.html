@@ -3,12 +3,13 @@
 	<head>
 		<TITLE>Ngezhey --> English</TITLE>
 		<LINK REL="STYLESHEET" type="text/css" href="../sty.css">
+		<script src="dictionary.js"></script>
 		<script src="ngezhey-to-english.js"></script>
 	</head>
 	<body>
 		<a href="../index.html">Home</a>|<a href="ngezhey.html">Ngezhey</a>
 		<h1>Ngezhey --> English Dictionary</h1>
-		<input type="text" id="search term"  action="#" method="post" onsubmit="return false;" onkeypress="return updateDefinitions();">
-		<p id="definitions"></p>
+		<input type="text" id="search term"  action="#" method="post" onsubmit="return false;" onkeyup="return updateDefinitions();">
+		<pre id="definitions"></pre>
 	</body>
 </html>
