@@ -2,10 +2,11 @@ function preferences(){
 	document.title = "Preferences";
 	sendAndGet('preferences',{},finishpreferences);
 	}function finishpreferences(reply){
-	var prefkeys = Object.keys(reply);
+	var prefs = reply.prefs;
+	var prefkeys = Object.keys(prefs);
 	var content = "<h1>Preferences</h1><ul>";
 	for (var i = 0;i<prefkeys.length;i++){
-		content += '<li>'+prefkeys[i]+'<input id="'+prefkeys[i]+'" value="'+reply[prefkeys[i]]+'"></li>\n';
+		content += '<li>'+prefkeys[i]+'<input id="'+prefkeys[i]+'" value="'+prefs[prefkeys[i]]+'"></li>\n';
 	}
 	window.sessionStorage.setItem('prefkeys',JSON.stringify(prefkeys));
 	content += "</ul><button onclick=\"preference()\">Save</button>";
