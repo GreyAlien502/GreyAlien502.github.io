@@ -41,14 +41,14 @@ function clearChat(){
 function login(){
 		getURL('http%3A%2F%2Fec.androiddown.com%2Fchat%2Fapp.php%3Fcmd%3Dlogin%26id%3D'+id,'finishlogin');
 		activate('login');
-	}function finishlogin(response){json = response.query.results.json;
+	}function finishlogin(response){json = response;
 		addToChat(form('Requesting connection...',"Please wait.",'system'));
 		deactivate('login');
 }
 function keep(){
 		getURL('http%3A%2F%2Fec.androiddown.com%2Fchat%2Fapp.php%3Fcmd%3Dkeep%26id%3D'+id,'finishkeep');
 		activate('keep');
-	}function finishkeep(response){json = response.query.results.json;
+	}function finishkeep(response){json = response;
 		function processEvent(event){
 			if (event.type == 'connected'){
 				to = event.from;
@@ -82,7 +82,7 @@ function chat(){
 			getURL('http%3A%2F%2Fec.androiddown.com%2Fchat%2Fapp.php%3Fcmd%3Dchat%26id%3D'+id+'%26to%3D'+to+"%26content%3D"+encoded_message,'finishchat');
 			activate('chat');
 		}
-	}function finishchat(response){json = response.query.results.json;
+	}function finishchat(response){json = response;
 		addToChat(form(message,'sent',"user"));
 		document.getElementById('input').value = '';
 		deactivate('chat');
@@ -90,7 +90,7 @@ function chat(){
 function disconnect(){
 		getURL('http%3A%2F%2Fec.androiddown.com%2Fchat%2Fapp.php%3Fcmd%3Ddisconnect%26id%3D'+id+'%26to%3D'+to,'finishdisconnect');
 		activate('disconnect');
-	}function finishdisconnect(response){json = response.query.results.json;
+	}function finishdisconnect(response){json = response;
 		addToChat(form("Disconnected.","",'system'));
 		deactivate('disconnect');
 }
@@ -101,7 +101,7 @@ function sendPic(){
 			getURL('http%3A%2F%2Fec.androiddown.com%2Fchat%2Fapp.php%3Fcmd%3Dchat%26id%3D'+id+'%26to%3D'+to+"%26content%3D"+encoded_message,'finishsendPic');
 			activate('picture');
 		}
-	}function finishsendPic(response){json = response.query.results.json;
+	}function finishsendPic(response){json = response;
 		addToChat(form("<img src='"+message+"'>",json.time,"user"));
 		document.getElementById('input').value = '';
 		deactivate('picture');
