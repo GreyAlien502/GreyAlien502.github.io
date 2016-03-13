@@ -10,7 +10,7 @@ function login(){
 	sendRequest(sendback,"login",{});
 	getReply(sendback,finishLogin);
 }function finishLogin(reply){
-	document.getElementById("content").innerHTML = reply;
+	document.getElementById("content").innerHTML = reply.message;
 }
 function maybeLogin(key){
 	if (key.keyCode == 13){login();}

@@ -3,7 +3,8 @@ function rfc3986EncodeURIComponent (str) {
 }
 function getURL(url,callback){
 	var script = document.createElement('script');
-	script.src = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20json%20where%20url%3D'"+url+"'&format=json&diagnostics=true&callback="+callback;
+	script.src = "https://jsonp.afeld.me/?callback="+callback+"&url="+url;
+	//old proxy:"https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20json%20where%20url%3D'"+url+"'&format=json&diagnostics=true&callback="+callback;
 	document.body.appendChild(script);
 }
 
@@ -40,9 +41,8 @@ function sendRequest(sendback,command,data){
 function getReply(sendback,callback){
 	requestData[sendback].callback = callback;
 	getURL('http%3A%2F%2Fec.androiddown.com%2Fchat%2Fapp.php%3Fcmd%3Dkeep%26id%3D'+sendback,'finishgetReply');
-	}function finishgetReply(response){console.log(response);json = response.query.results.json;
-		var url = response.query.diagnostics.url.content;
-		var sendback = url.substring(url.lastIndexOf('=') + 1);
+	}function finishgetReply(response){console.log(response);json = response;
+		var sendback = json.sendback;
 		var callback = requestData[sendback].callback;
 		console.log(requestData[sendback]);
 		
