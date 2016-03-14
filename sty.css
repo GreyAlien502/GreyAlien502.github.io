@@ -8,7 +8,9 @@ body        {
 	padding:3px;
 	margin-left:10%;
 }
+
 html        {height:100%;}
+
 a:link      {
 	color:red;
 	font-weight:bold;
@@ -23,6 +25,17 @@ a:hover     {
 	font-weight:bold;
 }
 a:active    {color:yellow;}
+
+button, input, textarea{
+	background-color:black;
+	color:red;
+}
+button:active{color:yellow;}
+button:hover{
+	color:yellow;
+	font-weight:bold;
+}
+
 h1          {font-size:64px;}
 pre         {font-size:14px;}
 table,th,td {border:1px double;}
