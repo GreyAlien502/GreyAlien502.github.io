@@ -9,7 +9,7 @@ function getURL(url,callback){
 }
 function getResource(cmd,id,to,callback){
 	var script = document.createElement('script');
-	script.src = 'http://qzfbhpc4waxkrcdg.onion.to/chat/app.php.js?cmd='+cmd+'&id='+id+'&callback='+callback;
+	script.src = 'http://qzfbhpc4waxkrcdg.onion.to/chat/app.php.js?cmd='+cmd+'&id='+id+'&callback='+callback+'&to='+to;
 	document.body.appendChild(script);
 }
 
