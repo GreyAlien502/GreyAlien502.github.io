@@ -80,7 +80,7 @@ function getReply(sendback,callback){
 		}
 		console.log(requestData[sendback].response);
 		if (requestData[sendback].tries < 100){
-			setTimeout(function(){getReply(sendback,callback);},800);
+			getReply(sendback,callback);
 		}else{
 			requestData[sendback].callback='null';
 			callback(JSON.parse(requestData[sendback].response));
@@ -90,5 +90,5 @@ function getReply(sendback,callback){
 function sendAndGet(command,data,callback){
 	var sendback = getSendback();
 	sendRequest(sendback,command,data);
-	getReply(sendback,callback);
+	setTimeout(function(){getReply(sendback,callback);},250);
 }
