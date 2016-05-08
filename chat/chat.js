@@ -39,14 +39,14 @@ function clearChat(){
 	document.getElementById('chattext').innerHTML = '';
 }
 function login(){
-		getURL('http%3A%2F%2Fec.androiddown.com%2Fchat%2Fapp.php%3Fcmd%3Dlogin%26id%3D'+id,'finishlogin');
+		getURL('http://ec.androiddown.com/chat/app.php?cmd=login&id='+id+"&t="+Math.random(),finishlogin);
 		activate('login');
 	}function finishlogin(response){json = response;
 		addToChat(form('Requesting connection...',"Please wait.",'system'));
 		deactivate('login');
 }
 function keep(){
-		getURL('http%3A%2F%2Fec.androiddown.com%2Fchat%2Fapp.php%3Fcmd%3Dkeep%26id%3D'+id,'finishkeep');
+		getURL('http://ec.androiddown.com/chat/app.php?cmd=keep&id='+id+"&t="+Math.random(),finishkeep);
 		activate('keep');
 	}function finishkeep(response){json = response;
 		function processEvent(event){
@@ -78,8 +78,8 @@ function keep(){
 function chat(){
 		message = document.getElementById("input").value;
 		if (message !== ''){
-			var encoded_message = rfc3986EncodeURIComponent(rfc3986EncodeURIComponent(message));
-			getURL('http%3A%2F%2Fec.androiddown.com%2Fchat%2Fapp.php%3Fcmd%3Dchat%26id%3D'+id+'%26to%3D'+to+"%26content%3D"+encoded_message,'finishchat');
+			var encoded_message = rfc3986EncodeURIComponent(message);
+			getURL('http://ec.androiddown.com/chat/app.php?cmd=chat&id='+id+'&to='+to+'&content='+encoded_message+"&t="+Math.random(), finishchat);
 			activate('chat');
 		}
 	}function finishchat(response){json = response;
@@ -88,7 +88,7 @@ function chat(){
 		deactivate('chat');
 }
 function disconnect(){
-		getURL('http%3A%2F%2Fec.androiddown.com%2Fchat%2Fapp.php%3Fcmd%3Ddisconnect%26id%3D'+id+'%26to%3D'+to,'finishdisconnect');
+		getURL('http://ec.androiddown.com/chat/app.php?cmd=disconnect&id='+id+'&to='+to+"&t="+Math.random(), finishdisconnect);
 		activate('disconnect');
 	}function finishdisconnect(response){json = response;
 		addToChat(form("Disconnected.","",'system'));
@@ -97,8 +97,8 @@ function disconnect(){
 function sendPic(){
 		message = document.getElementById("input").value;
 		if (message !== ''){
-			var encoded_message = rfc3986EncodeURIComponent(rfc3986EncodeURIComponent("PICTURE|"+message));
-			getURL('http%3A%2F%2Fec.androiddown.com%2Fchat%2Fapp.php%3Fcmd%3Dchat%26id%3D'+id+'%26to%3D'+to+"%26content%3D"+encoded_message,'finishsendPic');
+			var encoded_message = rfc3986EncodeURIComponent("PICTURE|"+message);
+			getURL('http://ec.androiddown.com/chat/app.php?cmd=chat&id='+id+'&to='+to+'&content='+encoded_message+"&t="+Math.random(), finishsendPic);
 			activate('picture');
 		}
 	}function finishsendPic(response){json = response;
