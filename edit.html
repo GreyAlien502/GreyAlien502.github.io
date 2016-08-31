@@ -1,23 +1,33 @@
 <!doctype html>
+<html>
+	<head>
+		<title>EDIT</title>
+		<link rel="shortcut icon" href="images/favicon.ico" type="x-icon">
+		<script>
+			window.onbeforeunload = function(e) {
+				e = e || window.event;
 
-<head>
-	<title>EDIT</title>
-	<link rel="shortcut icon" href="images/favicon.ico" type="x-icon">
-	<script>
-		window.onbeforeunload = function(e) {
-			e = e || window.event;
+				// For IE and Firefox prior to version 4
+				if (e) {
+					e.returnValue = 'Sure?';
+				}
 
-			// For IE and Firefox prior to version 4
-			if (e) {
-				e.returnValue = 'Sure?';
+				// For Safari --and firefox?
+				return 'Sure?';
+			};
+		</script>
+		<style>
+			body { margin: 0; }
+			textarea {
+				position: fixed;
+				width: 100vw;
+				height: 100vh;
+				resize: none;
 			}
+		</style>
+	</head>
 
-			// For Safari --and firefox?
-			return 'Sure?';
-		};
-	</script>
-</head>
-
-<body>
-	<textarea style="width:99%; height:1000; position:fixed"></textarea>
-</body>
+	<body>
+		<textarea></textarea>
+	</body>
+</html>
