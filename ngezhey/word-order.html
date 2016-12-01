@@ -18,7 +18,7 @@
 <p>Each "oh" causes the word to modify one word further back.</p>
 Consider the following sentence:<br>
 <code>
-gac&nbsp;&nbsp;&nbsp;9a&nbsp;laz&nbsp;&nbsp;&nbsp;oh&nbsp;oh&nbsp;un<br>
+gac&nbsp;&nbsp;&nbsp;9u&nbsp;laz&nbsp;&nbsp;&nbsp;oh&nbsp;oh&nbsp;un<br>
 water&nbsp;on&nbsp;table&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;much
 </code>
 <p>Each word describes the word before it except "un" (much) which describes the word 2 behind it ("gac"). Therefore, the sentence means: "the water on the table is much" or "there is a lot of water on the table." </p>
@@ -29,10 +29,10 @@ We will go over these possibilities in toto.<br>
 <ol>
 	<li>Not the correct part of speech:<br>
 		<code>
-			gac&nbsp;&nbsp;&nbsp;9a&nbsp;laz&nbsp;oh&nbsp;ex<br>
+			gac&nbsp;&nbsp;&nbsp;9u&nbsp;laz&nbsp;oh&nbsp;ex<br>
 			water&nbsp;on&nbsp;table&nbsp;&nbsp;bad
 		</code>
-		<p>The word "ex" (bad) describes "gac" because it can not describes '9a" (on), because it is a preposition.Therefore, the sentence means "the water on the table is bad." Without the "oh", the sentence would mean "There is water on the bad table."
+		<p>The word "ex" (bad) describes "gac" because it can not describes '9u" (on), because it is a preposition.Therefore, the sentence means "the water on the table is bad." Without the "oh", the sentence would mean "There is water on the bad table."
 		</p>
 	</li>
 	<li>Not described:<br>
@@ -46,10 +46,10 @@ Word x indirectly describes word y if the word that word x describes describes w
 	</li>
 	<li>Prepositions can only have one noun:<br>
 		<code>
-			gac&nbsp;&nbsp;&nbsp;9a&nbsp;laz&nbsp;&nbsp;&nbsp;gac&nbsp;&nbsp;&nbsp;ex<br>
+			gac&nbsp;&nbsp;&nbsp;9u&nbsp;laz&nbsp;&nbsp;&nbsp;gac&nbsp;&nbsp;&nbsp;ex<br>
 			water&nbsp;on&nbsp;table&nbsp;water&nbsp;bad 
 		</code>
-		<p>	Here, the word gac doesn’t describe anything because "9a" (on), the only word it could describe, is already taken by "laz" (table).
+		<p>	Here, the word gac doesn’t describe anything because "9u" (on), the only word it could describe, is already taken by "laz" (table).
 		</p>
 	</li>
 </ol>
@@ -59,12 +59,12 @@ Word x indirectly describes word y if the word that word x describes describes w
 <p>Another way of looking at this is as words followed by a pair of parentheses contianing everything that describes them. In this case, opening parentheses follow each regular word, and "oh" acts as closing parentheses.</p>
 Consider the following sentence:<br>
 <code>
-	gac&nbsp;&nbsp;9a&nbsp;laz&nbsp;&nbsp;&nbsp;oh&nbsp;oh&nbsp;un<br>
+	gac&nbsp;&nbsp;9u&nbsp;laz&nbsp;&nbsp;&nbsp;oh&nbsp;oh&nbsp;un<br>
 	water&nbsp;on&nbsp;&nbsp;table&nbsp;&nbsp;&nbsp;&nbsp;much
 </code>
 <p>Wrtten with opening parentheses after each regular words and closing parentheses in place of "oh"s, you get:</p>
 <code>
-	gac(&nbsp;&nbsp;&nbsp;9a(&nbsp;laz()&nbsp;&nbsp;)&nbsp;&nbsp;&nbsp;&nbsp;un()&nbsp;)<br>   
+	gac(&nbsp;&nbsp;&nbsp;9u(&nbsp;laz()&nbsp;&nbsp;)&nbsp;&nbsp;&nbsp;&nbsp;un()&nbsp;)<br>   
 	water(&nbsp;on(&nbsp;table()&nbsp;)&nbsp;much()&nbsp;)
 </code>
 <p>An extra parentheses was added at the end because that can be impled and doesn’t need to be stated. Each word is followed with parentheses containing a list of all the words that describe them. If you had to write or speak all of the closing parentheses as "oh"s, it would take forever, so the same three cases we saw above can be applied now.</p>
@@ -72,16 +72,16 @@ Consider the following sentence:<br>
 	<li>
 		A closing parentheses is implied if otherwise it would result in a word describing a part of speech it is not able to describe (like a noun describing an adjective). For example:<br>
 		<code>
-			gac&nbsp;&nbsp;&nbsp;9a&nbsp;laz&nbsp;oh&nbsp;ex<br>
+			gac&nbsp;&nbsp;&nbsp;9u&nbsp;laz&nbsp;oh&nbsp;ex<br>
 			water&nbsp;on&nbsp;table&nbsp;&nbsp;bad
 		</code>
 		<br>with parentheses:<br>
 		<code>
-			gac(&nbsp;&nbsp;&nbsp;9a(&nbsp;laz()&nbsp;&nbsp;)&nbsp;ex()&nbsp;))<br>
+			gac(&nbsp;&nbsp;&nbsp;9u(&nbsp;laz()&nbsp;&nbsp;)&nbsp;ex()&nbsp;))<br>
 			water(&nbsp;on(&nbsp;table())&nbsp;bad()))
 		</code>
 		<p>
-			You will see that there was another parentheses added between "laz" and "ex" because otherwise, you would have 9a(laz() ex), which is an adjective describing a preposition, which is against the rules and doesn't make sense.
+			You will see that there was another parentheses added between "laz" and "ex" because otherwise, you would have 9u(laz() ex), which is an adjective describing a preposition, which is against the rules and doesn't make sense.
 		</p>
 	</li>
 	<li>
@@ -101,16 +101,16 @@ In the sentence we used above:<br>
 	<li>
 		You also have to add parentheses in order to prevent two nouns from being in the same preposition’s parentheses. Here is the example we used before:<br>
 		<code>
-			gac&nbsp;&nbsp;&nbsp;9a&nbsp;laz&nbsp;&nbsp;&nbsp;gac&nbsp;&nbsp;&nbsp;ex<br>
+			gac&nbsp;&nbsp;&nbsp;9u&nbsp;laz&nbsp;&nbsp;&nbsp;gac&nbsp;&nbsp;&nbsp;ex<br>
 			water&nbsp;on&nbsp;table&nbsp;water&nbsp;bad
 		</code>
 		<br>with parentheses:<br>
 		<code>
-			gac(&nbsp;&nbsp;&nbsp;9a(&nbsp;laz()&nbsp;&nbsp;))&nbsp;&nbsp;gac(&nbsp;&nbsp;ex)<br>
+			gac(&nbsp;&nbsp;&nbsp;9u(&nbsp;laz()&nbsp;&nbsp;))&nbsp;&nbsp;gac(&nbsp;&nbsp;ex)<br>
 			water(&nbsp;on(&nbsp;table()&nbsp;))&nbsp;water(bad) 
 		</code>
 		<p>
-			There was an extra closing parentheses between "laz" and "gac" because otherwise, you would have "9a( laz() gac())", ie. a preposition described by two nouns.
+			There was an extra closing parentheses between "laz" and "gac" because otherwise, you would have "9u( laz() gac())", ie. a preposition described by two nouns.
 		</p>
 	</li>
 </ol>
@@ -118,33 +118,33 @@ In the sentence we used above:<br>
 <p>The third and final way of viewing this is as a sentence diagram. In this interpretation, each word is connected to the word it describes by a line. When there is more than one word describing the same other word, they are each added from top to bottom. Lines that connect words to what they describe always go left firt and sometimes then up. When diagramming sentences, each "oh" means the next word is connected to one word back.</p>
 Consider the following sentence:<br>
 <code>
-	gac(&nbsp;&nbsp;&nbsp;9a(&nbsp;laz()&nbsp;&nbsp;)&nbsp;&nbsp;&nbsp;&nbsp;un()&nbsp;)<br>   
+	gac(&nbsp;&nbsp;&nbsp;9u(&nbsp;laz()&nbsp;&nbsp;)&nbsp;&nbsp;&nbsp;&nbsp;un()&nbsp;)<br>   
 	water(&nbsp;on(&nbsp;table()&nbsp;)&nbsp;much()&nbsp;)
 </code>
 <br>As a diagram, it looks like this:<br>
-<pre>gac┳━9a━laz oh oh 
+<pre>gac┳━9u━laz oh oh 
    ┗━━━━━━━━━━━━━━un
 water┳━on━table
-	 ┗━━━━━━━━━━much
+     ┗━━━━━━━━━━much
 </pre>
-<p>"un" (much) describes the word "gac" (water) instead of "laz" or "9a" because there are two "oh"s before it. </p>
+<p>"un" (much) describes the word "gac" (water) instead of "laz" or "9u" because there are two "oh"s before it. </p>
 <p>Just as we had rules that let us leave out some "oh"s in the other interpretations, we have the same ones here. </p>
 <ol>
 	<li>
 		When counting back to make a word describe the correct thing, skip over words that are not the correct part of speech. <br>
 For example:<br>
 		<pre>
- gac  9a laz  oh ex
+ gac  9u laz  oh ex
 water on table   bad
 		</pre>
 As a diagram:
 		<pre>
-gac┳9a━laz oh
+gac┳9u━laz oh
    ┗━━━━━━━━━━ex
 water┳on━table
-	 ┗━━━━━━━━━bad
+     ┗━━━━━━━━━bad
 		</pre>
-		<p>In this example, the word "ex" (bad) skips over "laz" (table) because it has 1 "oh" before it. It skips over "9a" (on) because adjectives can not describe prepositions. Therefore, it ends up describing "gac" (water).</p>
+		<p>In this example, the word "ex" (bad) skips over "laz" (table) because it has 1 "oh" before it. It skips over "9u" (on) because adjectives can not describe prepositions. Therefore, it ends up describing "gac" (water).</p>
 	</li>
 	<li>
 		<p>The second rule means that we skip over any words that have a connection line below them. Since lines always go left and then up, it would not be possible to describe words that already have a line below them.</p>
@@ -159,8 +159,8 @@ gac┳guf
    ┣━━━━ex oh
    ┗━━━━━━━━━━━un
 water┳there
-	 ┣━━━━━━bad 
-	 ┗━━━━━━━━━━much
+     ┣━━━━━━bad 
+     ┗━━━━━━━━━━much
 		</pre>
 		<p>The word "un" (much) here describes "gac" (water). The "oh" prevents the word from describing "ex" bad, and there is a line below "guf" (there), so it can not describe that. Since lines go left and then up, you can see that it is not possible to connect "un" to "guf". (Such a line would have to go up and then left and would look completely out of place.) Another way of looking at it is to say that a new word can only connect to a word that is in the chain that connects the first word to the last word. In this case, that chain would include just "gac" and "ey" because they are directly connected.</p>
 	</li>
@@ -168,15 +168,15 @@ water┳there
 		<p>The third rule just means that prepositions are skipped for nouns if they already have a noun connected to them.</p>
 Here is the example we used before:<br>
 		<pre>
-gac   9a laz   gac   ex
+gac   9u laz   gac   ex
 water on table water bad
 		</pre>
 		here is the diagram:
 		<pre>
-gac━━━9a━laz     gac━━━ex
+gac━━━9u━laz     gac━━━ex
 water━on━table   water━bad
 		</pre>
-		<p>Here, the word "gac" doesn’t describe anything because, as we can see, "9a" already has "laz" connected to it, and there is only 'room' for one noun. </p>
+		<p>Here, the word "gac" doesn’t describe anything because, as we can see, "9u" already has "laz" connected to it, and there is only 'room' for one noun. </p>
 	</li>
 </ol>
 <body>
