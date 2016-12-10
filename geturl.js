@@ -9,7 +9,7 @@ function getURL(url,callback){
 	document.body.appendChild(script);*/
 
 	//url = 'https://crossorigin.me/' + url;
-	url = 'https://cors-anywhere.herokuapp.com/' + url;
+	url = 'http://cors-proxy.htmldriven.com/?url=' + url;
 	var request = new XMLHttpRequest();
 	if("withCredentials" in request) {
 		request.open('GET', url, true);
@@ -20,6 +20,7 @@ function getURL(url,callback){
 
 	request.onreadystatechange = function() {
 		if (request.readyState == 4 && request.status == 200) {
+			console.log(request.responseText);
 			var myArr = JSON.parse(request.responseText);
 			callback(myArr);
 		}
