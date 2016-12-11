@@ -9,7 +9,10 @@ function getURL(url,callback){
 	document.body.appendChild(script);*/
 
 	//url = 'https://crossorigin.me/' + url;
-	url = 'http://cors-proxy.htmldriven.com/?url=' + url;
+	//url = 'http://cors-proxy.htmldriven.com/?url=' + url;
+	url = 'http://query.yahooapis.com/v1/public/yql?diagnestics=false&format=json&q=select%20*%20from%20html%20where%20url%3D\''+rfc3986EncodeURIComponent(url.replace(/\'/g,"\\'"))+ '\'';
+
+
 	var request = new XMLHttpRequest();
 	if("withCredentials" in request) {
 		request.open('GET', url, true);
@@ -22,7 +25,8 @@ function getURL(url,callback){
 		if (request.readyState == 4 && request.status == 200) {
 			console.log(request.responseText);
 			var myArr = JSON.parse(request.responseText);
-			callback(myArr);
+			console.log(myArr.query.results.body);
+			callback(myArr.query.results.body);
 		}
 	};
 	request.send();

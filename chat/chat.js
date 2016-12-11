@@ -25,7 +25,7 @@ function activate(button){
 function setup(){
 	chattext = "";
 	id=Math.floor(Math.random()*10000000000);
-	setInterval(function(){keep();},1000);
+	setInterval(function(){keep();},1800);
 	document.getElementById("input").addEventListener( "keydown", function( e ) {
 		var keyCode = e.keyCode || e.which;
 		if ( keyCode === 13 ) {
@@ -41,14 +41,14 @@ function clearChat(){
 function login(){
 		getURL('http://ec.androiddown.com/chat/app.php?cmd=login&id='+id+"&t="+Math.random(),finishlogin);
 		activate('login');
-	}function finishlogin(response){json = response;
+	}function finishlogin(response){json = JSON.parse(response);
 		addToChat(form('Requesting connection...',"Please wait.",'system'));
 		deactivate('login');
 }
 function keep(){
 		getURL('http://ec.androiddown.com/chat/app.php?cmd=keep&id='+id+"&t="+Math.random(),finishkeep);
 		activate('keep');
-	}function finishkeep(response){json = response;
+	}function finishkeep(response){json = JSON.parse(response);
 		function processEvent(event){
 			if (event.type == 'connected'){
 				to = event.from;
@@ -82,7 +82,7 @@ function chat(){
 			getURL('http://ec.androiddown.com/chat/app.php?cmd=chat&id='+id+'&to='+to+'&content='+encoded_message+"&t="+Math.random(), finishchat);
 			activate('chat');
 		}
-	}function finishchat(response){json = response;
+	}function finishchat(response){json = JSON.parse(response);
 		addToChat(form(message,'sent',"user"));
 		document.getElementById('input').value = '';
 		deactivate('chat');
@@ -90,7 +90,7 @@ function chat(){
 function disconnect(){
 		getURL('http://ec.androiddown.com/chat/app.php?cmd=disconnect&id='+id+'&to='+to+"&t="+Math.random(), finishdisconnect);
 		activate('disconnect');
-	}function finishdisconnect(response){json = response;
+	}function finishdisconnect(response){json = JSON.parse(response);
 		addToChat(form("Disconnected.","",'system'));
 		deactivate('disconnect');
 }
@@ -101,7 +101,7 @@ function sendPic(){
 			getURL('http://ec.androiddown.com/chat/app.php?cmd=chat&id='+id+'&to='+to+'&content='+encoded_message+"&t="+Math.random(), finishsendPic);
 			activate('picture');
 		}
-	}function finishsendPic(response){json = response;
+	}function finishsendPic(response){json = JSON.parse(response);
 		addToChat(form("<img src='"+message+"'>",json.time,"user"));
 		document.getElementById('input').value = '';
 		deactivate('picture');
