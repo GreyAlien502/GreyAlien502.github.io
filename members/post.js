@@ -24,8 +24,7 @@ function post(){
 	posttitle = document.getElementById('title').value;
 	postcontent = document.getElementById('postcontent').value;
 	sendback = getSendback();
-	sendRequest(sendback,"post",{'title':posttitle, 'contents':postcontent});
-	getReply(sendback,finishpost);
+	sendAndGet("post",{'title':posttitle, 'contents':postcontent},finishpost);
 }function finishpost(reply){
 	window.location.href = '#posts';
 }

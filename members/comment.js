@@ -35,9 +35,7 @@ function writeComment(post,commentid){
 }
 function comment(post,commentid){
 	commentcontent = document.getElementById('comment').value;
-	sendback = getSendback();
-	sendRequest(sendback,"comment",{'post':post, 'comment':commentid,'content':commentcontent});
-	getReply(sendback,finishcomment);
+	sendAndGet("comment",{'post':post, 'comment':commentid,'content':commentcontent},finishcomment);
 }function finishcomment(reply){
 	comments(reply.post);
 }

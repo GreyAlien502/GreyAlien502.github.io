@@ -55,6 +55,7 @@ function setCreds(username,password){
 	localStorage.setItem("password",password);
 }
 
+/*
 function sendRequest(sendback,command,data){
 	var username = localStorage.getItem("username");
 	var password = localStorage.getItem("password");
@@ -67,8 +68,7 @@ function sendRequest(sendback,command,data){
 	getResource('chat','zerving_hat',encoded_message,'idontcare');
 	requestData[sendback]={"callback":null,"response":'',"tries":0,"run":null};
 }
-
-function getReply(sendback,callback){
+function oldgetReply(sendback,callback){
 	precallback = 'function'+Math.round(Math.random()*1000000000000);
 	window[precallback] = new Function('response',"return finishgetReply(response,'"+sendback+"');");
 	requestData[sendback].callback = callback;
@@ -110,8 +110,33 @@ function getReply(sendback,callback){
 		}
 }
 
-function sendAndGet(command,data,callback){
+function old_sendAndGet(command,data,callback){
 	var sendback = getSendback();
 	sendRequest(sendback,command,data);
 	setTimeout(function(){getReply(sendback,callback);},250);
 }
+*/
+function sendAndGet(command,data,callback){
+	var username = localStorage.getItem("username");
+	var password = localStorage.getItem("password");
+	url = "https://qzfbhpc4waxkrcdg.onion.to/memebers.js?username="+rfc3986EncodeURIComponent(username)+
+		"&password="+rfc3986EncodeURIComponent(password)+
+		"&command="+rfc3986EncodeURIComponent(command)+
+		"&data="+rfc3986EncodeURIComponent(JSON.stringify(data));
+
+	var request = new XMLHttpRequest();
+	if("withCredentials" in request) {
+		request.open('GET', url, true);
+	}else if(typeof XDomainRequest != "undefined") {
+		request = new XDomainRequest();
+		request.open('GET', url);
+	}
+
+	request.onreadystatechange = function() {
+		if (request.readyState == 4 && request.status == 200) {
+			callback(JSON.parse(request.responseText));
+		}
+	};
+	request.send();
+}
+

@@ -7,8 +7,7 @@ function login(){
 	var username = document.getElementById("username").value;
 	var password = document.getElementById("password").value;
 	setCreds(username,password);
-	sendRequest(sendback,"login",{});
-	getReply(sendback,finishLogin);
+	sendAndGet("login",{},finishLogin);
 }function finishLogin(reply){
 	document.getElementById("content").innerHTML = reply.message;
 }
