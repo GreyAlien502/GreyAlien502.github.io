@@ -1,8 +1,19 @@
-#chatbox    {width:400px; overflow:auto; background:#000000; border:5px #FFFF00; border-style:double double none none; border-top-right-radius:20px;}
-#infobox    {padding:10px; width:50%; display:table-cell;}
+#infobox {
+	padding:10px;
+	width:50%;
+	float:right;
+}
+#chatbox {
+	width:400px;
+	overflow:auto;
+	background:#000000;
+	border:5px #FFFF00;
+	border-style:double double none none;
+	border-top-right-radius:20px;
+}
 #input      {width:100%; max-width:100%;}
 #wrapper    {width:100%;display:table;}
-#chatside   {display:table-cell;}
+
 messagedivs   {margin-top:3px; margin-bottom:3px;}
 .user_container {text-align:left;}
 .system_container{text-align:center;}
