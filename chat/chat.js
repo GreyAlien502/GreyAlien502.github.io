@@ -25,7 +25,7 @@ function activate(button){
 function setup(){
 	chattext = "";
 	id=Math.floor(Math.random()*10000000000);
-	setInterval(function(){keep();},1800);
+	setInterval(function(){keep();},2500);
 	document.getElementById("input").addEventListener( "keydown", function( e ) {
 		var keyCode = e.keyCode || e.which;
 		if ( keyCode === 13 ) {
