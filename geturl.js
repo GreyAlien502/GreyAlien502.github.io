@@ -119,7 +119,7 @@ function old_sendAndGet(command,data,callback){
 function sendAndGet(command,data,callback){
 	var username = localStorage.getItem("username");
 	var password = localStorage.getItem("password");
-	url = "https://e36ba778.ngrok.io/memebers.js?username="+rfc3986EncodeURIComponent(username)+
+	url = "https://eaa9331c.ngrok.io/memebers.js?username="+rfc3986EncodeURIComponent(username)+
 		"&password="+rfc3986EncodeURIComponent(password)+
 		"&command="+rfc3986EncodeURIComponent(command)+
 		"&data="+rfc3986EncodeURIComponent(JSON.stringify(data));
