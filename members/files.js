@@ -69,7 +69,7 @@ function renameFile(){
 	var name = document.getElementById("name").value;
 	sendAndGet("renameFile",{'path':path, 'newname':name},finishrenameFile);
 	}function finishrenameFile(reply){
-	window.location.hash = '#files/'+reply.path;
+	window.location.replace('#files/'+reply.path);
 }
 
 function writeEditFile(){
