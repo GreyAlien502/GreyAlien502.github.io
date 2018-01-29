@@ -2439,6 +2439,12 @@ var _cats = __webpack_require__(79);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+if (localStorage.getItem("username") === null) {
+	localStorage.setItem("username", "guest");
+	localStorage.setItem("password", "guest");
+}
+document.getElementById('username').innerHTML = localStorage.getItem("username");
+
 var Main = function Main() {
 	return _react2.default.createElement(
 		_reactRouterDom.Switch,
@@ -23574,11 +23580,7 @@ var Post = function (_React$Component2) {
 						null,
 						(0, _base.authorship)(this.state.data.post)
 					),
-					_react2.default.createElement(
-						'pre',
-						null,
-						this.state.data.post.contents
-					),
+					_react2.default.createElement('div', { dangerouslySetInnerHTML: { __html: '<pre>' + this.state.data.post.contents + '</pre>' } }),
 					_react2.default.createElement(CommentBox, {
 						comments: this.state.data.comments,
 						comment: comment,
@@ -23735,11 +23737,7 @@ var PostList = function (_React$Component4) {
 									null,
 									(0, _base.authorship)(post)
 								),
-								_react2.default.createElement(
-									'pre',
-									null,
-									post.contents
-								)
+								_react2.default.createElement('div', { dangerouslySetInnerHTML: { __html: '<pre>' + post.contents } })
 							);
 						})
 					),

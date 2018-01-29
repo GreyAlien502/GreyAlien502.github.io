@@ -85,7 +85,7 @@ class Post extends React.Component {
 			return(<div id={this.state.data.post.time}>
 				<h1>{this.state.data.post.title}</h1>
 				<h3>{authorship(this.state.data.post)}</h3>
-				<pre>{this.state.data.post.contents}</pre>
+				<div dangerouslySetInnerHTML={ {__html:'<pre>'+this.state.data.post.contents+'</pre>'} }/>
 				<CommentBox
 					comments={this.state.data.comments}
 					comment={comment}
@@ -149,7 +149,7 @@ class PostList extends React.Component {
 						{post.title}
 					</a></h2>
 					<h3>{authorship(post)}</h3>
-					<pre>{post.contents}</pre>
+					<div dangerouslySetInnerHTML={ {__html:'<pre>'+post.contents} } />
 				</li>))}</ol>
 				<a href={"#posts/p"+(this.state.postNumber-this.state.data.posts.length)}> &lt; </a>
 				<a href={"#posts/p"+(this.state.postNumber+this.state.data.posts.length)}> &gt; </a>

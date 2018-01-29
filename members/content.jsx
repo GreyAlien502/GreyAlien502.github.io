@@ -7,6 +7,12 @@ import { Files } from './files.jsx';
 import { Preferences } from './preferences.jsx';
 import { Cats } from './cats.jsx';
 
+if(localStorage.getItem("username") === null){
+	localStorage.setItem("username","guest");
+	localStorage.setItem("password","guest");
+}
+document.getElementById('username').innerHTML=localStorage.getItem("username");
+
 const Main = ()=>(
 	<Switch>
 		<Route path='/posts' component={Posts} />
