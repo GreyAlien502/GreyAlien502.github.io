@@ -1020,6 +1020,8 @@ var API = function API(command, data) {
 		'data': JSON.stringify(data)
 	}).join('&'), { mode: 'cors' }).then(function (x) {
 		return x.json();
+	}, function () {
+		return API(command, data);
 	});
 };
 var formatTime = function formatTime(time) {

@@ -9,7 +9,7 @@ let API = (command,data) => {
 			'data':    JSON.stringify(data)
 		}).join('&'),
 		{mode: 'cors'}
-	).then(x=>x.json());
+	).then(x=>x.json(),()=>API(command,data));
 }
 let formatTime=time=>{
 	let date = new Date(time*1000);
