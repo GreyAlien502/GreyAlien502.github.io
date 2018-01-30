@@ -6,6 +6,7 @@ import { Posts } from './posts.jsx';
 import { Files } from './files.jsx';
 import { Preferences } from './preferences.jsx';
 import { Cats } from './cats.jsx';
+import { Messages } from './messages.jsx';
 
 if(localStorage.getItem("username") === null){
 	localStorage.setItem("username","guest");
@@ -19,6 +20,7 @@ const Main = ()=>(
 		<Route path='/files' component={Files} />
 		<Route path='/preferences' component={Preferences} />
 		<Route path='/cats' component={Cats} />
+		<Route path='/messages' component={Messages} />
 	</Switch>
 );
 
