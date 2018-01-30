@@ -24371,7 +24371,7 @@ var Cats = function Cats() {
 			'Enter an email to recieve cat facts daily. To send a text, enter the SMS Gateway Address, which you can look up ',
 			_react2.default.createElement(
 				'a',
-				{ href: 'http://www.freecarrierlookup.com/', target: '_blank' },
+				{ href: 'http://freesmsgateway.info/', target: '_blank' },
 				'here'
 			),
 			'.'
@@ -24628,7 +24628,7 @@ var Messagers = function (_React$Component3) {
 					_react2.default.createElement(
 						'button',
 						{ onClick: function onClick() {
-								return _this10.setState({ adding: !_this10.state.editing });
+								return _this10.setState({ adding: !_this10.state.adding });
 							} },
 						'+'
 					),

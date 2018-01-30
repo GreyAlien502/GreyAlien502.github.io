@@ -102,7 +102,7 @@ class Messagers extends React.Component {
 			<h1>Messagers:</h1>
 			{ this.state.data?( <div>
 				{this.state.data.messagers.length}
-				<button onClick={()=>this.setState({adding:!this.state.editing})}>+</button><br/>
+				<button onClick={()=>this.setState({adding:!this.state.adding})}>+</button><br/>
 				<button onClick={()=>this.update()}>^</button>
 				<ul>
 					{this.state.adding?(

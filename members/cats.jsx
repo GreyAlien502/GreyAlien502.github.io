@@ -9,7 +9,7 @@ let Cats =()=>(<div>
 	<p>
 		Enter an email to recieve cat facts daily.
 		To send a text, enter the SMS Gateway Address,
-		which you can look up <a href="http://www.freecarrierlookup.com/" target="_blank">here</a>.
+		which you can look up <a href="http://freesmsgateway.info/" target="_blank">here</a>.
 	</p>
 	<input id="nomination"/><br/>
 	<button onClick={
