@@ -2443,11 +2443,18 @@ var _messages = __webpack_require__(80);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-if (localStorage.getItem("username") === null) {
+if (localStorage.getItem("username") === null) {}
+document.getElementById('username').innerHTML = localStorage.getItem("username");
+var Logout = function Logout() {
 	localStorage.setItem("username", "guest");
 	localStorage.setItem("password", "guest");
-}
-document.getElementById('username').innerHTML = localStorage.getItem("username");
+	document.getElementById('username').innerHTML = localStorage.getItem("username");
+	return _react2.default.createElement(
+		'span',
+		null,
+		'Logged out.'
+	);
+};
 
 var Main = function Main() {
 	return _react2.default.createElement(
@@ -2457,7 +2464,8 @@ var Main = function Main() {
 		_react2.default.createElement(_reactRouterDom.Route, { path: '/files', component: _files.Files }),
 		_react2.default.createElement(_reactRouterDom.Route, { path: '/preferences', component: _preferences.Preferences }),
 		_react2.default.createElement(_reactRouterDom.Route, { path: '/cats', component: _cats.Cats }),
-		_react2.default.createElement(_reactRouterDom.Route, { path: '/messages', component: _messages.Messages })
+		_react2.default.createElement(_reactRouterDom.Route, { path: '/messages', component: _messages.Messages }),
+		_react2.default.createElement(_reactRouterDom.Route, { path: '/logout', component: Logout })
 	);
 };
 
