@@ -852,7 +852,7 @@ var API = function API(command, data) {
 	}).join('&'), { mode: 'cors' }).then(function (x) {
 		return x.json();
 	}, function () {
-		return 'API(command,data)';
+		return API(command, data);
 	});
 };
 var formatTime = function formatTime(time) {
@@ -2443,19 +2443,16 @@ var _messages = __webpack_require__(80);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-if (localStorage.getItem("username") === null) {}
-document.getElementById('username').innerHTML = localStorage.getItem("username");
 var Logout = function Logout() {
 	localStorage.setItem("username", "guest");
 	localStorage.setItem("password", "guest");
-	document.getElementById('username').innerHTML = localStorage.getItem("username");
+	document.getElementById('username').innerHTML = username();
 	return _react2.default.createElement(
 		'span',
 		null,
 		'Logged out.'
 	);
 };
-
 var Main = function Main() {
 	return _react2.default.createElement(
 		_reactRouterDom.Switch,
@@ -2469,6 +2466,13 @@ var Main = function Main() {
 	);
 };
 
+username = function username() {
+	return localStorage.getItem("username");
+};
+if (username() === null) {
+	Logout();
+}
+document.getElementById('username').innerHTML = username();
 _reactDom2.default.render(_react2.default.createElement(
 	_reactRouterDom.HashRouter,
 	null,

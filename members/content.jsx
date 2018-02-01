@@ -7,17 +7,12 @@ import { Preferences } from './preferences.jsx';
 import { Cats } from './cats.jsx';
 import { Messages } from './messages.jsx';
 
-if(localStorage.getItem("username") === null){
-}
-document.getElementById('username').innerHTML=localStorage.getItem("username");
-let Logout =()=>{
+const Logout =()=>{
 	localStorage.setItem("username","guest");
 	localStorage.setItem("password","guest");
-	document.getElementById('username').innerHTML=localStorage.getItem("username");
+	document.getElementById('username').innerHTML=username();
 	return <span>Logged out.</span>;
 }
-
-
 const Main = ()=>(
 	<Switch>
 		<Route path='/posts' component={Posts} />
@@ -30,6 +25,11 @@ const Main = ()=>(
 );
 
 
+username =()=>localStorage.getItem("username");
+if(username() === null){
+	Logout();
+}
+document.getElementById('username').innerHTML=username();
 ReactDOM.render(
 	<HashRouter><Main/></HashRouter>,
 	document.getElementById('actualcontent')
