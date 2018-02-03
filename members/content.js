@@ -2443,6 +2443,9 @@ var _messages = __webpack_require__(80);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var username = function username() {
+	return localStorage.getItem("username");
+};
 var Logout = function Logout() {
 	localStorage.setItem("username", "guest");
 	localStorage.setItem("password", "guest");
@@ -2466,9 +2469,6 @@ var Main = function Main() {
 	);
 };
 
-username = function username() {
-	return localStorage.getItem("username");
-};
 if (username() === null) {
 	Logout();
 }

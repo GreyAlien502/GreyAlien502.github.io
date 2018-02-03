@@ -7,6 +7,7 @@ import { Preferences } from './preferences.jsx';
 import { Cats } from './cats.jsx';
 import { Messages } from './messages.jsx';
 
+let username =()=>localStorage.getItem("username");
 const Logout =()=>{
 	localStorage.setItem("username","guest");
 	localStorage.setItem("password","guest");
@@ -25,7 +26,6 @@ const Main = ()=>(
 );
 
 
-username =()=>localStorage.getItem("username");
 if(username() === null){
 	Logout();
 }
