@@ -24658,11 +24658,11 @@ var Messagers = function (_React$Component3) {
 						this.state.adding ? _react2.default.createElement(
 							'li',
 							{ key: 'new' },
-							_react2.default.createElement('input', { id: 'newMessager' }),
+							_react2.default.createElement('input', { id: 'newMessagee' }),
 							_react2.default.createElement(
 								'button',
 								{ onClick: function onClick() {
-										return _this10.send();
+										return _this10.addMessagee();
 									} },
 								'Send'
 							)

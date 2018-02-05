@@ -107,8 +107,8 @@ class Messagers extends React.Component {
 				<ul>
 					{this.state.adding?(
 						<li key="new">
-							<input id="newMessager"/>
-							<button onClick={()=>this.send()}>Send</button>
+							<input id="newMessagee"/>
+							<button onClick={()=>this.addMessagee()}>Send</button>
 						</li>
 					):null}
 					{ this.state.data.messagers.map(messager=>(<li key={messager}>
