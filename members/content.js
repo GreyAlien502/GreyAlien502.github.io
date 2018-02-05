@@ -23630,8 +23630,8 @@ var NewPost = function (_React$Component3) {
 		key: 'render',
 		value: function render() {
 			var submit = function submit() {
-				(0, _base.API)('post', {
-					title: document.getElementtById('title').value,
+				return (0, _base.API)('post', {
+					title: document.getElementById('title').value,
 					contents: document.getElementById('postContent').value
 				}).then(function () {
 					return window.location.hash = "#posts";
@@ -23651,9 +23651,7 @@ var NewPost = function (_React$Component3) {
 				_react2.default.createElement('br', null),
 				_react2.default.createElement(
 					'button',
-					{ onClick: function onClick() {
-							return null;
-						} },
+					{ onClick: submit },
 					'Post'
 				)
 			);

@@ -99,19 +99,17 @@ class Post extends React.Component {
 }
 class NewPost extends React.Component {
 	render(){
-		let submit=()=>{
-			API('post', {
-				title: document.getElementtById('title').value,
-				contents: document.getElementById('postContent').value
-			}).then(
-				()=>window.location.hash="#posts"
-			);
-		}
+		let submit=()=> API('post', {
+			title: document.getElementById('title').value,
+			contents: document.getElementById('postContent').value
+		}).then(
+			()=>window.location.hash="#posts"
+		);
 		return ( <div>
 			<h1>New Post</h1>
 			<input id="title"/><br/>
 			<textarea id="postContent"/><br/>
-			<button onClick={()=>null}>Post</button>
+			<button onClick={submit}>Post</button>
 		</div>);
 	}
 }
