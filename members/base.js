@@ -1,7 +1,7 @@
 let API = (command,data) => {
 	let encode = str => encodeURIComponent(str).replace(/[!'()*]/g, escape);
 	return fetch(
-		"https://welcometomyigloo.localtunnel.me/memebers.js?"+
+		"http://24.45.20.70:7265/memebers.js?"+
 		(queries=>Object.keys(queries).map( key => encode(key)+'='+encode(queries[key]) ))({
 			'username':localStorage.getItem("username"),
 			'password':localStorage.getItem("password"),
