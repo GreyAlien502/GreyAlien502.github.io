@@ -2443,6 +2443,9 @@ var _messages = __webpack_require__(80);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+if (window.location.protocol == 'https:') {
+	window.location.protocol = 'http:';
+}
 var username = function username() {
 	return localStorage.getItem("username");
 };

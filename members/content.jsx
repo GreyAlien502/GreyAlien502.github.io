@@ -7,6 +7,9 @@ import { Preferences } from './preferences.jsx';
 import { Cats } from './cats.jsx';
 import { Messages } from './messages.jsx';
 
+if(window.location.protocol == 'https:'){
+	window.location.protocol = 'http:'
+}
 let username =()=>localStorage.getItem("username");
 const Logout =()=>{
 	localStorage.setItem("username","guest");
