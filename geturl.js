@@ -119,7 +119,7 @@ function old_sendAndGet(command,data,callback){
 function sendAndGet(command,data,callback){
 	var username = localStorage.getItem("username");
 	var password = localStorage.getItem("password");
-	url = "https://welcometomyigloo.localtunnel.me/memebers.js?username="+rfc3986EncodeURIComponent(username)+
+	url = "http://24.45.20.70:7265/memebers.js?username="+rfc3986EncodeURIComponent(username)+
 		"&password="+rfc3986EncodeURIComponent(password)+
 		"&command="+rfc3986EncodeURIComponent(command)+
 		"&data="+rfc3986EncodeURIComponent(JSON.stringify(data));
