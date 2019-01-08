@@ -142,7 +142,7 @@ class PostList extends React.Component {
 			<h1>Posts:</h1>
 			{this.state.data?(<div>
 				<span>{this.state.data.posts.length}</span><a href="#posts/new">+</a>
-				<ol>{this.state.data.posts.map(post=>(<li key={post.time} class="post">
+				<ol>{this.state.data.posts.map(post=>(<li key={post.time} className="post">
 					<h2><a href={"#posts/" + post.time}>
 						{post.title}
 					</a></h2>

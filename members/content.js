@@ -28596,7 +28596,7 @@ var PostList = function (_React$Component4) {
 						this.state.data.posts.map(function (post) {
 							return _react2.default.createElement(
 								'li',
-								{ key: post.time, 'class': 'post' },
+								{ key: post.time, className: 'post' },
 								_react2.default.createElement(
 									'h2',
 									null,
