@@ -10,8 +10,10 @@
 <BODY>
 	<a href="../index.html">Home</a>
 	<H1>Login to your account</H1>
-	Username: <input id="username" autofocus><br>
-	Password: <input id="password" onKeyPress="maybeLogin(key);"><br>
-	<button onclick="login()" >Login</button>
+	<form onsubmit="login();return false;">
+		Username: <input id="username" value="guest" autofocus><br>
+		Password: <input id="password" value="guest" ><br>
+		<button>Login</button>
+	</form>
 	<div id="content"></div>
 </BODY>
