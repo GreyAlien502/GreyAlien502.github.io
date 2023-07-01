@@ -1,7 +1,7 @@
 let API = (command,data) => {
 	let encode = str => encodeURIComponent(str).replace(/[!'()*]/g, escape);
 	return fetch(
-		"http://mebio"+"us.ga:7265/memebers.js?"+
+		"http://24.45.22.117:7265/memebers.js?"+
 		(queries=>Object.keys(queries).map( key => encode(key)+'='+encode(queries[key]) ))({
 			'username':localStorage.getItem("username"),
 			'password':localStorage.getItem("password"),

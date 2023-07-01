@@ -1534,7 +1534,7 @@ var API = function API(command, data) {
 	var encode = function encode(str) {
 		return encodeURIComponent(str).replace(/[!'()*]/g, escape);
 	};
-	return fetch("http://mebio" + "us.ga:7265/memebers.js?" + function (queries) {
+	return fetch("http://24.45.22.117:7265/memebers.js?" + function (queries) {
 		return Object.keys(queries).map(function (key) {
 			return encode(key) + '=' + encode(queries[key]);
 		});
