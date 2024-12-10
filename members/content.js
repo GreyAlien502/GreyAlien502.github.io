@@ -1534,7 +1534,7 @@ var API = function API(command, data) {
 	var encode = function encode(str) {
 		return encodeURIComponent(str).replace(/[!'()*]/g, escape);
 	};
-	return fetch("https://mebio" + "us.uk.to/memebers.js?" + function (queries) {
+	return fetch("https://mebio" + "us.us.to/memebers.js?" + function (queries) {
 		return Object.keys(queries).map(function (key) {
 			return encode(key) + '=' + encode(queries[key]);
 		});
@@ -2298,8 +2298,9 @@ function parse (str, options) {
     var partial = prefix != null && next != null && next !== prefix
     var repeat = modifier === '+' || modifier === '*'
     var optional = modifier === '?' || modifier === '*'
-    var delimiter = res[2] || defaultDelimiter
+    var delimiter = prefix || defaultDelimiter
     var pattern = capture || group
+    var prevText = prefix || (typeof tokens[tokens.length - 1] === 'string' ? tokens[tokens.length - 1] : '')
 
     tokens.push({
       name: name || key++,
@@ -2309,7 +2310,7 @@ function parse (str, options) {
       repeat: repeat,
       partial: partial,
       asterisk: !!asterisk,
-      pattern: pattern ? escapeGroup(pattern) : (asterisk ? '.*' : '[^' + escapeString(delimiter) + ']+?')
+      pattern: pattern ? escapeGroup(pattern) : (asterisk ? '.*' : restrictBacktrack(delimiter, prevText))
     })
   }
 
@@ -2324,6 +2325,14 @@ function parse (str, options) {
   }
 
   return tokens
+}
+
+function restrictBacktrack(delimiter, prevText) {
+  if (!prevText || prevText.indexOf(delimiter) > -1) {
+    return '[^' + escapeString(delimiter) + ']+?'
+  }
+
+  return escapeString(prevText) + '|(?:(?!' + escapeString(prevText) + ')[^' + escapeString(delimiter) + '])+?'
 }
 
 /**
@@ -32334,21 +32343,17 @@ module.exports = function() {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (immutable) */ __webpack_exports__["a"] = _extends;
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return _extends; });
 function _extends() {
-  _extends = Object.assign ? Object.assign.bind() : function (target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i];
-      for (var key in source) {
-        if (Object.prototype.hasOwnProperty.call(source, key)) {
-          target[key] = source[key];
-        }
-      }
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
     }
-    return target;
-  };
-  return _extends.apply(this, arguments);
+    return n;
+  }, _extends.apply(null, arguments);
 }
+
 
 /***/ }),
 /* 39 */
